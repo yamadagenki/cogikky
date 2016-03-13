@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Cogikky
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body class="scene-#{params[:controller]}"
+    = render partial: 'shared/header'
+    div.main-content id="is-#{params[:action]}"
+      = yield
+    = render partial: 'shared/footer'

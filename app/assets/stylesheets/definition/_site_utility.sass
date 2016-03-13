@@ -1,0 +1,44 @@
+=btn-style($color1, $color2, $color3)
+  width: 480px
+  height: 64px
+  line-height: 64px
+  font-size: 2.4rem
+  border-radius: 10px
+  color: #fff
+  text-align: center
+  background: $color1
+  display: inline-block
+  &:visited
+    color: $col_white
+  &:hover
+    color: $col_white
+    background: $color2
+    cursor: pointer
+  &:active
+    color: $col_white
+    background: $color3
+
+=btn-low-style($color1, $color2)
+  display: inline-block
+  width: 240px
+  height: 64px
+  line-height: 55px
+  font-size: 2.4rem
+  border-radius: 10px
+  text-align: center
+  font-weight: bold
+  color: $color1
+  border: 5px $color1 solid
+  background: $col_white
+  display: inline-block
+  &:visited
+    color: $color1
+  &:hover
+    color: $col_white
+    background-color: $color1
+    border-width: 5px
+    cursor: pointer
+  &:active
+    color: $col_white
+    border: 5px $color2 solid
+    background-color: $color2
