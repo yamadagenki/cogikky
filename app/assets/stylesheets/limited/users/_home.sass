@@ -1,0 +1,85 @@
+@charset 'UTF-8'
+
+
+/* @mixin scene-home-index-content($border-color)
+/*   border-top: solid 2px $border-color
+/*   margin-bottom: 20px
+/*   &__title
+/*     margin-top: 20px
+/*     margin-left: 20px
+/*     font-size: $font-size-xx-large
+/*   &__contents
+/*     display: block
+/*     margin-top: 20px
+/*     margin-left: 50px
+/*     font-size: $font-size-base
+
+.scene-users-home
+  #is-index
+    .s-top_image
+      width: 100%
+      min-width: $width-base
+      height: 600px
+      background: image-url('top_image.png') no-repeat
+      background-position: center
+      position: relative
+      filter: alpha(opacity=80)
+      -moz-opacity: 0.8
+      opacity: 0.8
+      margin-bottom: 40px
+      &__catch-copy-box
+        position: absolute
+        top: 200px
+        width: 100%
+        &__catch-copy
+          width: 650px
+          margin: 0 auto
+          text-align: center
+          font-size: $cache-copy-size
+          line-height: $line-height-for-cache-copy-size
+          color: $cache-copy-color
+          background-color: $cache-copy-background-color
+    .s-giving_categories
+      margin-top: 100px
+      margin-bottom: 100px
+      &__title
+        text-align: center
+        width: 300px
+        font-size: $font-size-xxxxx-large
+        margin: 18px auto
+      &__contents
+        &__content
+          background-color: red
+          width: 226px
+          height: 140px
+          margin: 20px
+          display: inline-block
+    .s-about_cogikky
+      margin-top: 100px
+      margin-bottom: 100px
+      &__title
+        text-align: center
+        width: 300px
+        font-size: $font-size-xxxxx-large
+        margin: 18px auto
+        margin-bottom: 40px
+      &__description
+        text-align: left
+        width: $about-cogikky-desc-width
+        margin: 0 auto
+    .s-how_to_use
+      margin-top: 100px
+      margin-bottom: 100px
+      &__title
+        text-align: center
+        width: 300px
+        font-size: $font-size-xxxxx-large
+        margin: 18px auto
+        margin-bottom: 40px
+      &__contents
+        &__content
+          background-color: yellow
+          width: 226px
+          height: 140px
+          margin: 20px 65px
+          display: inline-block

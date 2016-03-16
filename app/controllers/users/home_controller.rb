@@ -1,5 +1,5 @@
 module Users
-  class HomeController < ApplicationController
+  class HomeController < UsersController
     def index
     end
   end

@@ -1,3 +1,24 @@
 .s-top_image
-  = image_tag('top_image.png')
+  .s-top_image__catch-copy-box
+    .s-top_image__catch-copy-box__catch-copy
+      | そういえば、あれ欲しかった
 .content
+  .s-giving_categories
+    .s-giving_categories__title 恵むカテゴリー
+    ul.s-giving_categories__contents
+      - Category.all.each do |category|
+        = link_to users_category_path(category.id) do
+          li.s-giving_categories__contents__content
+            = category.name
+
+  .s-about_cogikky
+    .s-about_cogikky__title Cogikkyについて
+    .s-about_cogikky__description
+      p Cogikkyとは、日本語の「乞食」を語源としています。乞食は。。。ひたすら「恵んでもらう」のを待ってください。
+
+  .s-how_to_use
+    .s-how_to_use__title 使い方について
+    ul.s-how_to_use__contents
+      - 3.times do |i|
+        li.s-how_to_use__contents__content
+          = i

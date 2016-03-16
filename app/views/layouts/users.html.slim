@@ -7,6 +7,6 @@ html
     = csrf_meta_tags
   body class="scene-#{params[:controller].gsub(/\//, '-')}"
     = render partial: 'shared/header'
-    div.main-content id="is-#{params[:action]}"
+    div.main-content.cle id="is-#{params[:action]}"
       = yield
     = render partial: 'shared/footer'

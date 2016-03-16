@@ -19,6 +19,12 @@ gem 'cells'
 gem 'slim-rails'
 gem 'breadcrumbs_on_rails'
 
+# マスターデータ
+gem 'active_hash'
+
+# ページネーション
+gem 'kaminari'
+
 group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug'
