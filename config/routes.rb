@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   namespace :users do
     resources :categories, only: [:show]
+    resources :wishes, only: [:show]
   end
 end
