@@ -15,6 +15,15 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'cells'
+gem 'slim-rails'
+gem 'breadcrumbs_on_rails'
+
+# マスターデータ
+gem 'active_hash'
+
+# ページネーション
+gem 'kaminari'
 
 group :development, :test do
   gem 'brakeman', require: false
@@ -31,3 +40,16 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'database_cleaner', '~> 1.4.1'
+  gem 'poltergeist'
+  gem 'rspec-rails'
+  gem 'rspec-cells'
+  gem 'rspec-retry'
+  gem 'rspec_junit_formatter', '0.2.2'
+  gem 'simplecov', require: false
+  gem 'timecop'
+  gem 'webmock'
+end

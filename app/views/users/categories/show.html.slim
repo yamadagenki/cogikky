@@ -1,0 +1,15 @@
+.content
+  aside.c-two-culomn-aside
+    .c-two-culomn-aside__menu_box
+      h2.c-two-culomn-aside__menu_box__title
+        | 恵むカテゴリー
+      .c-two-culomn-aside__menu_box__lists
+        - Category.all.each do |category|
+          = link_to users_category_path(category.id) do
+            .c-two-culomn-aside__menu_box__lists__list
+              = category.name
+
+
+  main.c-two-culomn-main
+    h1.c-two-culomn-main__title
+      = "#{@category.name}を恵む？"
