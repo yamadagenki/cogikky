@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     get '/auth/destroy',    to: 'user#destroy',       as: :auth_destroy
     resources :categories, only: [:show]
     resources :wishes, only: [:show]
+    resources :givings, only: [:create, :destroy, :new]
   end
 end
