@@ -15,30 +15,32 @@
 
   main.two_culomn_main
     h1.two_culomn_main__title
-      = '◯◯のサイン色紙'
+      = @wish.title
     .s-wishes_images
       .s-wishes_images__image
         = image_tag ''
     .s-user_info.cle
-      .s-user_info__image
-        | おおお
+      = image_tag @user.image, class: 's-user_info__image'
       .s-user_info__comment
-        | おおお
+        = @wish.comment
     .s-wishes_infos
       h2.s-wishes_infos__title
         | 欲しいもの情報
       table
         tr
           th カテゴリ
-          td おおおお
+          td
+            = @category.name
         tr
-          th カテゴリ
-          td おおおお
+          th 支払える金額
+          td
+            p
+              = @wish.price_min
+            p
+              = @wish.price_max
         tr
-          th カテゴリ
-          td おおおお
-        tr
-          th カテゴリ
-          td おおおお
+          th 説明
+          td
+            = @wish.description
     .c-button
       = link_to '恵んであげる', new_users_giving_path, class: 'c-button__giving'
