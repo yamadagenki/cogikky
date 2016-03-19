@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sorcery'
 
 gem 'cells'
 gem 'slim-rails'
@@ -25,7 +26,12 @@ gem 'active_hash'
 # ページネーション
 gem 'kaminari'
 
+# Facebookログイン
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'brakeman', require: false
   gem 'byebug'
   gem 'bullet'

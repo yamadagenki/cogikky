@@ -1,3 +1,7 @@
 header
   .content
     | ヘッダー
+    - if logged_in?
+      = link_to 'ログアウト', users_auth_destroy_path
+    - else
+      = link_to 'ログイン', '/auth/facebook'
