@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160319175523) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "uid"
+    t.string   "hashed_id"
     t.string   "name"
     t.string   "image"
     t.string   "oauth_token"
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160319175523) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["hashed_id"], name: "index_users_on_hashed_id", unique: true
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
   create_table "wishes", force: :cascade do |t|

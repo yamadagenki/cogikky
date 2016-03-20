@@ -1,5 +1,8 @@
 module Users
   class UserController < UsersController
+    def show
+    end
+
     def create
       return unless env['omniauth.auth'].present?
 
