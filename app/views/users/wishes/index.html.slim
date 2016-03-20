@@ -1,0 +1,6 @@
+- @wishes.each do |wish|
+    .sample.mb-b4
+      p
+        = link_to "#{wish.title}", users_wish_path(wish.id)
+      p
+        = link_to '編集', edit_users_wish_path(wish.id)

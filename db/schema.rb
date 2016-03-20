@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319175523) do
+ActiveRecord::Schema.define(version: 20160320143239) do
+
+  create_table "givings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "wish_id"
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "givings", ["user_id"], name: "index_givings_on_user_id"
+  add_index "givings", ["wish_id"], name: "index_givings_on_wish_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -30,6 +41,16 @@ ActiveRecord::Schema.define(version: 20160319175523) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["hashed_id"], name: "index_users_on_hashed_id", unique: true
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true
+
+  create_table "wish_images", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.integer  "wish_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "wish_images", ["wish_id"], name: "index_wish_images_on_wish_id"
 
   create_table "wishes", force: :cascade do |t|
     t.string   "title"

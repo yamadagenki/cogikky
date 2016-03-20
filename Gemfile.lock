@@ -79,6 +79,11 @@ GEM
     capybara-screenshot (1.0.11)
       capybara (>= 1.0, < 3)
       launchy
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     cells (4.0.4)
       tilt (>= 1.4, < 3)
       uber (~> 0.0.9)
@@ -356,6 +361,7 @@ DEPENDENCIES
   byebug
   capybara
   capybara-screenshot
+  carrierwave
   cells
   coffee-rails (~> 4.1.0)
   compass-rails
