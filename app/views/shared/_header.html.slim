@@ -1,7 +1,10 @@
 header
-  .content
-    | ヘッダー
-    - if logged_in?
-      = link_to 'ログアウト', users_auth_destroy_path
-    - else
-      = link_to 'ログイン', '/auth/facebook'
+  .content.po-r
+    = link_to 'Cogikky', root_path, class: 'logo'
+    .links
+      - if logged_in?
+        = link_to 'マイページ', users_user_mypage_path, class: 'mr-b4'
+        = link_to 'メッセージ', '/', class: 'mr-b4'
+        = link_to 'ログアウト', users_auth_destroy_path
+      - else
+        = link_to 'ログイン', '/auth/facebook'
