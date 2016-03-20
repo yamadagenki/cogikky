@@ -1,5 +1,5 @@
 module Users
-  class WishDecorator < Draper::Decorator
+  class GivingDecorator < Draper::Decorator
     delegate_all
 
     # Define presentation-specific methods here. Helpers are accessed through

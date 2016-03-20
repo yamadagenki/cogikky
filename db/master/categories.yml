@@ -1,16 +1,16 @@
 - id: 1
   name: アイドルグッズ
 - id: 2
-  name: 雑貨
+  name: 生活雑貨
 - id: 3
-  name: テスト2
+  name: ビューティー・ヘルス
 - id: 4
-  name: テスト3
+  name: 食品
 - id: 5
-  name: テスト4
+  name: 家電
 - id: 6
-  name: テスト5
+  name: ファッション
 - id: 7
-  name: テスト6
+  name: ペット用品
 - id: 8
-  name: テスト7
+  name: その他

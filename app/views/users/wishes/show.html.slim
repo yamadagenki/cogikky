@@ -1,4 +1,7 @@
-.content
+.breadcrumbs
+  = render_breadcrumbs separator: ' > '
+
+.content.cle
   aside.two_culomn_aside
     .two_culomn_aside__menu_box
       h2.two_culomn_aside__menu_box__title
@@ -12,4 +15,32 @@
 
   main.two_culomn_main
     h1.two_culomn_main__title
-      = '◯◯のサイン色紙'
+      = @wish.title
+    .s-wishes_images
+      .s-wishes_images__image
+        = image_tag ''
+    .s-user_info.cle
+      = image_tag @user.image, class: 's-user_info__image'
+      .s-user_info__comment
+        = @wish.comment
+    .s-wishes_infos
+      h2.s-wishes_infos__title
+        | 欲しいもの情報
+      table
+        tr
+          th カテゴリ
+          td
+            = @category.name
+        tr
+          th 支払える金額
+          td
+            p
+              = @wish.price_min
+            p
+              = @wish.price_max
+        tr
+          th 説明
+          td
+            = @wish.description
+    .c-button
+      = link_to '恵んであげる', new_users_giving_path, class: 'c-button__giving'

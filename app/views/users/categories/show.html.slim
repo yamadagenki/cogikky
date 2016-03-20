@@ -1,4 +1,7 @@
-.content
+.breadcrumbs
+  = render_breadcrumbs separator: ' > '
+
+.content.cle
   aside.two_culomn_aside
     .two_culomn_aside__menu_box
       h2.two_culomn_aside__menu_box__title
@@ -13,8 +16,10 @@
   main.two_culomn_main
     h1.two_culomn_main__title
       = "#{@category.name}を恵む？"
+    = paginate @wishes, outer_window: 4
     .c-wish_items
-      - 10.times do |i|
-        = link_to users_wish_path(i) do
+      - @wishes.each do |wish|
+        = link_to users_wish_path(wish.id) do
           article.c-wish_items__item
-            = i
+            = wish.title
+    = paginate @wishes, outer_window: 4
