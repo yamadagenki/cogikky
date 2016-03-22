@@ -1,1 +1,58 @@
-= current_user.name
+= render partial: 'shared/mypage_menu'
+
+.content
+  .s-notification
+    h2.s-notification__title お知らせ
+    ul.s-notification__contents
+      li.s-notification__contents__content
+        = link_to '・未読のメッセージが2件あります', users_messages_path
+      li.s-notification__contents__content
+        |・恵んでくれる人が見つかりました！
+      li.s-notification__contents__content
+        = link_to '・欲しいものを登録して、恵んでもらうのを待ちましょう！', new_users_wish_path
+  .s-latest_list
+    h2.s-latest_list__title 欲しいもの一覧(最新5件)
+    .c-mypage_wish_list
+      - 5.times do |i|
+        .c-mypage_wish_list__item
+          = image_tag("category/#{i+1}.png", class: 'c-mypage_wish_list__item__image')
+          = image_tag(current_user.image, class: 'c-mypage_wish_list__item__user_image')
+          .c-mypage_wish_list__item__user_name
+            = current_user.name
+          table.c-mypage_wish_list__item__table
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th タイトル
+              td.c-mypage_wish_list__item__table__tr__td へへへ
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th カテゴリ
+              td.c-mypage_wish_list__item__table__tr__td へへへ
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th 支払える額
+              td.c-mypage_wish_list__item__table__tr__td へへへ
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th コメント
+              td.c-mypage_wish_list__item__table__tr__td へへへ
+
+
+  .s-latest_list
+    h2.s-latest_list__title 恵むもの一覧(最新5件)
+    .c-mypage_wish_list
+      - 5.times do |i|
+        .c-mypage_wish_list__item
+          = image_tag("category/#{i+1}.png", class: 'c-mypage_wish_list__item__image')
+          = image_tag(current_user.image, class: 'c-mypage_wish_list__item__user_image')
+          .c-mypage_wish_list__item__user_name
+            = current_user.name
+          table.c-mypage_wish_list__item__table
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th タイトル
+              td.c-mypage_wish_list__item__table__tr__td へへへ
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th カテゴリ
+              td.c-mypage_wish_list__item__table__tr__td へへへ
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th 支払える額
+              td.c-mypage_wish_list__item__table__tr__td へへへ
+            tr.c-mypage_wish_list__item__table__tr
+              th.c-mypage_wish_list__item__table__tr__th コメント
+              td.c-mypage_wish_list__item__table__tr__td へへへ

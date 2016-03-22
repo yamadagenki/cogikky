@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     get '/mypage/:hashed_id',      to: 'user#show',         as: :user_show
     get '/auth/destroy',    to: 'user#destroy',      as: :auth_destroy
     resources :wishes
+    resources :messages
     resources :categories, only: [:show, :index]
     resources :givings, only: [:create, :destroy, :new, :index]
   end
+
+
+  get 'terms' => 'pages#show', id: 'terms'
 end

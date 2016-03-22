@@ -31,6 +31,9 @@ gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+# 静的ページ
+gem 'high_voltage'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'brakeman', require: false
