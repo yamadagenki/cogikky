@@ -4,6 +4,8 @@ header
     .links
       - if logged_in?
         = link_to 'マイページ', users_user_mypage_path, class: 'mr-b4'
+        = link_to 'プロフィール', users_user_show_path(current_user.hashed_id), class: 'mr-b4'
+        = link_to '欲しいもの登録', new_users_wish_path, class: 'mr-b4'
         = link_to 'ログアウト', users_auth_destroy_path
       - else
         = link_to 'ログイン', '/auth/facebook'

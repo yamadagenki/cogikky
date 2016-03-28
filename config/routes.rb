@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     get '/mypage/edit',            to: 'user#edit',         as: :user_edit
     get '/mypage/:hashed_id',      to: 'user#show',         as: :user_show
     get '/auth/destroy',    to: 'user#destroy',      as: :auth_destroy
-    resources :wishes
+    resources :wishes do
+      collection do
+        post :confirm
+      end
+    end
     resources :messages
     resources :categories, only: [:show, :index]
     resources :givings, only: [:create, :destroy, :new, :index]

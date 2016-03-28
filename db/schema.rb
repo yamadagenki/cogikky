@@ -42,16 +42,6 @@ ActiveRecord::Schema.define(version: 20160320143239) do
   add_index "users", ["hashed_id"], name: "index_users_on_hashed_id", unique: true
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
-  create_table "wish_images", force: :cascade do |t|
-    t.string   "title"
-    t.string   "image"
-    t.integer  "wish_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "wish_images", ["wish_id"], name: "index_wish_images_on_wish_id"
-
   create_table "wishes", force: :cascade do |t|
     t.string   "title"
     t.integer  "category_id"
@@ -61,6 +51,9 @@ ActiveRecord::Schema.define(version: 20160320143239) do
     t.string   "state"
     t.string   "price_max"
     t.string   "price_min"
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image3"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

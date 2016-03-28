@@ -18,6 +18,7 @@ module Users
     end
 
     def new
+      @wish = Wish.new
     end
 
     def edit
@@ -29,7 +30,23 @@ module Users
     def destroy
     end
 
+    def confirm
+      @wish = Wish.new(wish_params)
+    end
+
     def create
+      wish = Wish.create(wish_params)
+      return redirect_to users_wish_path(wish.id), notice: '登録完了。恵んでもらうのをひたすら待ってください' if wish
+
+      redirect_to users_wish_path(wish.id)
+    end
+
+    private
+
+    def wish_params
+      params.require(:wish).permit(:user_id, :title, :category_id,
+                                   :comment, :price_min, :price_max,
+                                   :description, :image1, :image2, :image3)
     end
   end
 end

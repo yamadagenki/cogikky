@@ -1,12 +1,33 @@
 @charset 'UTF-8'
 
 .scene-users-wishes
-  #is-index
-    .s-latest_list
-      width: 80%
-      margin: 0 auto
+  #is-new
+    .s-wishes_form
       padding: 40px 0
       &__title
         font-size: $font-size-xxx-large
         padding-bottom: 10px
-
+      &__images
+        display: flex
+        align-items: center
+        justify-content: space-around
+        padding: 20px 0
+        &__image
+          line-height: 20px
+          width: 200px
+  #is-confirm
+    .s-wishes_form
+      padding: 40px 0
+      &__title
+        font-size: $font-size-xxx-large
+        padding-bottom: 10px
+      &__images
+        display: flex
+        align-items: center
+        justify-content: space-around
+        padding: 20px 0
+        &__image
+          line-height: 20px
+          width: 340px
+          margin: 10px
+          max-height: 400px

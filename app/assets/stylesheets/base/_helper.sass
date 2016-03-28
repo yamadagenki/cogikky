@@ -375,3 +375,11 @@
 
 .hidden
   display: none !important
+
+@for $i from 1 through 20
+  .w#{$i*5}p
+    width: #{$i*5}% !important
+
+@for $i from 1 through 40
+  .w#{$i*25}
+    width: #{$i*25}px !important

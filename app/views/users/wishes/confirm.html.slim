@@ -3,7 +3,7 @@
 .content
   .s-wishes_form
     .s-wishes_form__title 恵んでもらうものを登録
-    = form_for(@wish, url: confirm_users_wishes_path, html: {class: 'c-basic-form'}) do |f|
+    = form_for(@wish, url: users_wishes_path, method: :post, html: {class: 'c-basic-form'}) do |f|
       = f.hidden_field :user_id, value: current_user.id
       .cle
         .c-basic-form__content.fl-l.w40p
@@ -28,7 +28,13 @@
         = f.text_area :description, class: 'c-basic-form__content__area w500', rows: 5
       label.c-basic-form__content__label 写真選択
       .s-wishes_form__images
-        = f.file_field :image1, class:'s-wishes_form__images__image'
-        = f.file_field :image2, class:'s-wishes_form__images__image'
-        = f.file_field :image3, class:'s-wishes_form__images__image'
-      = f.submit 'とりあえず、確認する', class: 'c-basic-form__submit_button'
+        .s-wishes_form__images__image
+          = image_tag @wish.image1.url, class: 'w100p'
+        .s-wishes_form__images__image
+          = image_tag @wish.image2.url, class: 'w100p'
+        .s-wishes_form__images__image
+          = image_tag @wish.image3.url, class: 'w100p'
+        = f.hidden_field :image1
+        = f.hidden_field :image2
+        = f.hidden_field :image3
+      = f.submit '登録して恵んでもらうのをひたすら待つ', class: 'c-basic-form__submit_button'
