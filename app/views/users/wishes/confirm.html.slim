@@ -1,40 +1,49 @@
-= render partial: 'shared/mypage_menu'
-
-.content
-  .s-wishes_form
-    .s-wishes_form__title 恵んでもらうものを登録
-    = form_for(@wish, url: users_wishes_path, method: :post, html: {class: 'c-basic-form'}) do |f|
-      = f.hidden_field :user_id, value: current_user.id
-      .cle
-        .c-basic-form__content.fl-l.w40p
-          label.c-basic-form__content__label タイトル
-          = f.text_field :title, class: 'c-basic-form__content__field'
-        .c-basic-form__content.fl-l.w50p
-          label.c-basic-form__content__label カテゴリー
-          = f.select :category_id, options_for_select(Category.all.map{|category| ["#{category.name}", category.id]}), {}, class: 'c-basic-form__content__select'
-      .cle
-        .c-basic-form__content.fl-l.w40p
-          label.c-basic-form__content__label コメント
-          = f.text_field :comment, class: 'c-basic-form__content__field'
-        .c-basic-form__content.fl-l.w50p
-          label.c-basic-form__content__label 出せる金額
-          .cle
-            = f.text_field :price_min, class: 'c-basic-form__content__field w150 di-ib'
-            .di-ib 円 〜
-            = f.text_field :price_max, class: 'c-basic-form__content__field w150 di-ib'
-            .di-ib 円 くらい
-      .c-basic-form__content
-        label.c-basic-form__content__label 説明
-        = f.text_area :description, class: 'c-basic-form__content__area w500', rows: 5
-      label.c-basic-form__content__label 写真選択
-      .s-wishes_form__images
-        .s-wishes_form__images__image
-          = image_tag @wish.image1.url, class: 'w100p'
-        .s-wishes_form__images__image
-          = image_tag @wish.image2.url, class: 'w100p'
-        .s-wishes_form__images__image
-          = image_tag @wish.image3.url, class: 'w100p'
-        = f.hidden_field :image1
-        = f.hidden_field :image2
-        = f.hidden_field :image3
-      = f.submit '登録して恵んでもらうのをひたすら待つ', class: 'c-basic-form__submit_button'
+.content.cle
+  = render partial: 'shared/mypage_menu'
+  main.two_culomn_main
+    = form_for(@wish, url: users_wishes_path) do |f|
+      - @wish.class.column_names.each do |column_name|
+        = f.hidden_field column_name.to_sym, value: @wish[column_name.to_sym]
+      = f.hidden_field :image1_cache, value: @wish.image1_cache
+      = f.hidden_field :image2_cache, value: @wish.image2_cache
+      = f.hidden_field :image3_cache, value: @wish.image3_cache
+      h1.two_culomn_main__title
+        | #{@wish.title}(登録確認)
+        = f.hidden_field :title, value: @wish.title
+      .c-wish_detail
+        .c-wish_detail__images
+          ul.bxslider
+            - file = 'https://scontent-nrt1-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/11377093_1011895595489189_2044274437629127086_n.jpg?oh=1d3aa2717a9f92a2638ebefa277fcff6&oe=57988D04'
+            li
+              - if !@wish.image1.url
+                = image_tag(@wish.image1_cache, class: 'c-wish_detail__images__image')
+            li
+              - if !@wish.image2.url
+                = image_tag(@wish.image2_cache, class: 'c-wish_detail__images__image')
+            li
+              - if !@wish.image3.url
+                = image_tag(@wish.image3_cache, class: 'c-wish_detail__images__image')
+        .c-wish_detail__user_info.cle
+          = image_tag current_user.image + '?type=normal', class: 'c-wish_detail__user_info__image'
+          .c-wish_detail__user_info__comment
+            = @wish.comment
+        .c-wish_detail__info
+          h2.c-wish_detail__info__title
+            | 欲しいもの情報
+          table
+            tr
+              th カテゴリ
+              td
+                = Category.find_by_id(@wish.category_id).name
+            tr
+              th 支払える金額
+              td
+                p
+                  = @wish.price_min
+                p
+                  = @wish.price_max
+            tr
+              th 説明
+              td
+                = @wish.description
+        = f.submit '登録して、恵んでもらえるのをひたすら待つ', class: 'c-basic-form__submit_button'

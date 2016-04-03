@@ -1,22 +1,26 @@
-= render partial: 'shared/mypage_menu'
-
-.content
-  .s-wishes_form
-    .s-wishes_form__title 恵んでもらうものを登録
+.content.cle
+  = render partial: 'shared/mypage_menu'
+  main.two_culomn_main.c-wish_detail
+    h1.two_culomn_main__title 恵んでもらうものを登録
     = form_for(@wish, url: confirm_users_wishes_path, html: {class: 'c-basic-form'}) do |f|
       = f.hidden_field :user_id, value: current_user.id
+      .c-basic-form__content
+        label.c-basic-form__content__label タイトル
+        = f.text_field :title, class: 'c-basic-form__content__field'
+      .s-wishes_form__images
+        = f.file_field :image1, class:'s-wishes_form__images__image'
+        = f.file_field :image2, class:'s-wishes_form__images__image'
+        = f.file_field :image3, class:'s-wishes_form__images__image'
+      .c-basic-form__content
+        .c-wish_detail__user_info.cle.mb-b8
+          = image_tag current_user.image + '?type=normal', class: 'c-wish_detail__user_info__image'
+          .c-wish_detail__user_info__comment
+            label.c-basic-form__content__label コメント
+            = f.text_field :comment, class: 'c-basic-form__content__field'
+        label.c-basic-form__content__label カテゴリー
+        = f.select :category_id, options_for_select(Category.all.map{|category| ["#{category.name}", category.id]}), {}, class: 'c-basic-form__content__select'
       .cle
-        .c-basic-form__content.fl-l.w40p
-          label.c-basic-form__content__label タイトル
-          = f.text_field :title, class: 'c-basic-form__content__field'
-        .c-basic-form__content.fl-l.w50p
-          label.c-basic-form__content__label カテゴリー
-          = f.select :category_id, options_for_select(Category.all.map{|category| ["#{category.name}", category.id]}), {}, class: 'c-basic-form__content__select'
-      .cle
-        .c-basic-form__content.fl-l.w40p
-          label.c-basic-form__content__label コメント
-          = f.text_field :comment, class: 'c-basic-form__content__field'
-        .c-basic-form__content.fl-l.w50p
+        .c-basic-form__content
           label.c-basic-form__content__label 出せる金額
           .cle
             = f.text_field :price_min, class: 'c-basic-form__content__field w150 di-ib'
@@ -26,9 +30,4 @@
       .c-basic-form__content
         label.c-basic-form__content__label 説明
         = f.text_area :description, class: 'c-basic-form__content__area w500', rows: 5
-      label.c-basic-form__content__label 写真選択
-      .s-wishes_form__images
-        = f.file_field :image1, class:'s-wishes_form__images__image'
-        = f.file_field :image2, class:'s-wishes_form__images__image'
-        = f.file_field :image3, class:'s-wishes_form__images__image'
-      = f.submit 'とりあえず、確認する', class: 'c-basic-form__submit_button'
+        = f.submit 'とりあえず、確認する', class: 'c-basic-form__submit_button'

@@ -1,7 +1,6 @@
-= render partial: 'shared/mypage_menu'
-
-.content
-  .s-notification
+.content.cle
+  = render partial: 'shared/mypage_menu'
+  main.two_culomn_main
     h2.s-notification__title お知らせ
     ul.s-notification__contents
       li.s-notification__contents__content
@@ -10,5 +9,5 @@
         |・恵んでくれる人が見つかりました！
       li.s-notification__contents__content
         = link_to '・欲しいものを登録して、恵んでもらうのを待ちましょう！', new_users_wish_path
-  = render partial: 'shared/mypage_wish', locals: { title: '欲しいもの一覧(最新5件)' }
-  = render partial: 'shared/mypage_wish', locals: { title: '恵むもの一覧(最新5件)' }
+    = render partial: 'shared/mypage_wish', locals: { title: '欲しいもの一覧(最新5件)' }
+    = render partial: 'shared/mypage_wish', locals: { title: '恵むもの一覧(最新5件)' }

@@ -34,6 +34,9 @@ gem 'omniauth-facebook'
 # 静的ページ
 gem 'high_voltage'
 
+# スライダー画像
+gem 'bxslider-rails'
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'brakeman', require: false
@@ -48,6 +51,7 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'quiet_assets'
+  gem 'rack-mini-profiler'
   gem 'spring'
 end
 
