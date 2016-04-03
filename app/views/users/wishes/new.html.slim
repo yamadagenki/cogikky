@@ -8,13 +8,13 @@
         label.c-basic-form__content__label タイトル
         = f.text_field :title, class: 'c-basic-form__content__field'
       .s-wishes_form__images
-        = f.file_field :image1, class:'s-wishes_form__images__image'
-        = f.file_field :image2, class:'s-wishes_form__images__image'
-        = f.file_field :image3, class:'s-wishes_form__images__image'
+        = f.file_field :image1, class:'s-wishes_form__images__image', id: 'image1'
+        = f.file_field :image2, class:'s-wishes_form__images__image', id: 'image2'
+        = f.file_field :image3, class:'s-wishes_form__images__image', id: 'image3'
       .c-basic-form__content
         .c-wish_detail__user_info.cle.mb-b8
           = image_tag current_user.image + '?type=normal', class: 'c-wish_detail__user_info__image'
-          .c-wish_detail__user_info__comment
+          .fl-l.ml-b8
             label.c-basic-form__content__label コメント
             = f.text_field :comment, class: 'c-basic-form__content__field'
         label.c-basic-form__content__label カテゴリー
@@ -31,3 +31,7 @@
         label.c-basic-form__content__label 説明
         = f.text_area :description, class: 'c-basic-form__content__area w500', rows: 5
         = f.submit 'とりあえず、確認する', class: 'c-basic-form__submit_button'
+
+- content_for :footer_script do
+  javascript:
+    WishesController.new();

@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bxslider
+//= require ./users/common.js
+//= require_tree ./users/controllers
+//= require_tree ./users/models

@@ -17,18 +17,18 @@
     h1.two_culomn_main__title
       = @wish.title
     .c-wish_detail
-      .c-wish_detail__images
-        ul.bxslider
-          - file = 'https://scontent-nrt1-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/11377093_1011895595489189_2044274437629127086_n.jpg?oh=1d3aa2717a9f92a2638ebefa277fcff6&oe=57988D04'
-          li
-            - if !@wish.image1.url
-              = image_tag(file, class: 'c-wish_detail__images__image')
-          li
-            - if !@wish.image2.url
-              = image_tag(file, class: 'c-wish_detail__images__image')
-          li
-            - if !@wish.image3.url
-              = image_tag(file, class: 'c-wish_detail__images__image')
+      - if @wish.images.compact.present?
+        .c-wish_detail__images
+          ul.bxslider
+            li
+              - if @wish.image1.url
+                = image_tag(@wish.image1.url, class: 'c-wish_detail__images__image')
+            li
+              - if @wish.image2.url
+                = image_tag(@wish.image2.url, class: 'c-wish_detail__images__image')
+            li
+              - if @wish.image3.url
+                = image_tag(@wish.image3.url, class: 'c-wish_detail__images__image')
       .c-wish_detail__user_info.cle
         = image_tag @user.image + '?type=normal', class: 'c-wish_detail__user_info__image'
         .c-wish_detail__user_info__comment
@@ -44,10 +44,7 @@
           tr
             th 支払える金額
             td
-              p
-                = @wish.price_min
-              p
-                = @wish.price_max
+              = @wish.price_range
           tr
             th 説明
             td

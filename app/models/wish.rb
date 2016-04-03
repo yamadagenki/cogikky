@@ -13,7 +13,15 @@ class Wish < ActiveRecord::Base
     end
   end
 
+  def images
+    [image1.url, image2.url, image3.url]
+  end
+
   mount_uploader :image1, ImageUploader
   mount_uploader :image2, ImageUploader
   mount_uploader :image3, ImageUploader
+
+  def price_range
+    "#{price_min.jpy_comma}円〜#{price_max.jpy_comma}円"
+  end
 end

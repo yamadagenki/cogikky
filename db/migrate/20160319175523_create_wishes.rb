@@ -7,8 +7,8 @@ class CreateWishes < ActiveRecord::Migration
       t.string :comment
       t.text   :description
       t.string :state
-      t.string :price_max
-      t.string :price_min
+      t.integer :price_max
+      t.integer :price_min
       t.string :image1
       t.string :image2
       t.string :image3

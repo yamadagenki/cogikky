@@ -4,6 +4,10 @@
   &__images
     width: 80%
     margin: 20px auto
+    .bx-wrapper
+      box-shadow: none
+      border: none
+      background: none
     &__image
       width: 300px
       max-height: 300px
@@ -28,8 +32,45 @@
     margin: 40px
     &__title
       font-size: 32px
+      margin-bottom: 20px
     table
-      border-collapse: collapse
-      border: 2px #2b2b2b solid
-    td, th
-      border: 2px #2b2b2b solid
+      width: 80%
+      margin: 0 auto
+      border-spacing: 0
+      border-collapse: separate
+      th, td
+        border-top: 1px solid #02A21C
+        border-left: 1px solid #02A21C
+      th
+        width: 30%
+        background: #78CFBF
+        color: #FFF
+        padding: 5px 10px
+      tr:nth-child(even) th
+        background: #62BBAB
+      td
+        width: 70%
+        background: #FCFCFC
+        color: #45823E
+        padding: 5px 10px
+      tr:nth-child(even) td
+        background: #EEE
+      th:last-child, td:last-child
+        border-right: 1px solid #02A21C
+      tr
+        &:last-child
+          th, td
+            border-bottom: 1px solid #02A21C
+        &:first-child
+          \:first-child
+            border-top-left-radius: 5px
+          \:last-child
+            border-top-right-radius: 5px
+        &:last-child
+          \:first-child
+            border-bottom-left-radius: 5px
+          \:last-child
+            border-bottom-right-radius: 5px
+        &:not(:first-child)
+          th, td
+            border-top: none

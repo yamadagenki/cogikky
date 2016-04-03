@@ -36,7 +36,7 @@ module Users
 
     def create
       @wish = Wish.new(wish_params)
-      return redirect_to users_wish_path(wish.id), notice: '登録完了。恵んでもらうのをひたすら待ってください' if @wish.save
+      return redirect_to users_wish_path(@wish.id), notice: '登録完了。恵んでもらうのをひたすら待ってください' if @wish.save
 
       render 'confirm'
     end
