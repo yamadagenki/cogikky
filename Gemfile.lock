@@ -68,6 +68,7 @@ GEM
     bullet (5.0.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
+    bxslider-rails (4.2.5.1)
     byebug (8.2.2)
     capybara (2.6.2)
       addressable
@@ -79,6 +80,11 @@ GEM
     capybara-screenshot (1.0.11)
       capybara (>= 1.0, < 3)
       launchy
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     cells (4.0.4)
       tilt (>= 1.4, < 3)
       uber (~> 0.0.9)
@@ -137,6 +143,7 @@ GEM
       tilt
     hashdiff (0.3.0)
     hashie (3.4.3)
+    high_voltage (2.4.0)
     highline (1.7.8)
     i18n (0.7.0)
     jbuilder (2.4.1)
@@ -198,7 +205,11 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.4)
+    rack-mini-profiler (0.9.9.2)
+      rack (>= 1.2.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -353,15 +364,18 @@ DEPENDENCIES
   brakeman
   breadcrumbs_on_rails
   bullet
+  bxslider-rails
   byebug
   capybara
   capybara-screenshot
+  carrierwave
   cells
   coffee-rails (~> 4.1.0)
   compass-rails
   database_cleaner (~> 1.4.1)
   dotenv-rails
   draper
+  high_voltage
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
@@ -370,6 +384,8 @@ DEPENDENCIES
   poltergeist
   pry-byebug
   pry-rails
+  quiet_assets
+  rack-mini-profiler
   rails (= 4.2.5.1)
   rspec-cells
   rspec-rails

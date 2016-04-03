@@ -1,0 +1,22 @@
+.c-mypage_wish_list
+  h2.c-mypage_wish_list__title
+    = title
+  - 5.times do |i|
+    .c-mypage_wish_list__item
+      = image_tag("category/#{i+1}.png", class: 'c-mypage_wish_list__item__image')
+      = image_tag(current_user.image, class: 'c-mypage_wish_list__item__user_image')
+      .c-mypage_wish_list__item__user_name
+        = current_user.name
+      table.c-mypage_wish_list__item__table
+        tr.c-mypage_wish_list__item__table__tr
+          th.c-mypage_wish_list__item__table__tr__th タイトル
+          td.c-mypage_wish_list__item__table__tr__td へへへ
+        tr.c-mypage_wish_list__item__table__tr
+          th.c-mypage_wish_list__item__table__tr__th カテゴリ
+          td.c-mypage_wish_list__item__table__tr__td へへへ
+        tr.c-mypage_wish_list__item__table__tr
+          th.c-mypage_wish_list__item__table__tr__th 支払える額
+          td.c-mypage_wish_list__item__table__tr__td へへへ
+        tr.c-mypage_wish_list__item__table__tr
+          th.c-mypage_wish_list__item__table__tr__th コメント
+          td.c-mypage_wish_list__item__table__tr__td へへへ

@@ -1,0 +1,11 @@
+.content.cle
+  = render partial: 'shared/mypage_menu'
+  main.two_culomn_main
+    = render partial: 'shared/mypage_wish', locals: { title: '欲しいもの一覧' }
+
+- @wishes.each do |wish|
+    .sample.mb-b4
+      p
+        = link_to "#{wish.title}", users_wish_path(wish.id)
+      p
+        = link_to '編集', edit_users_wish_path(wish.id)

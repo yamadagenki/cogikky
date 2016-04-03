@@ -16,31 +16,41 @@
   main.two_culomn_main
     h1.two_culomn_main__title
       = @wish.title
-    .s-wishes_images
-      .s-wishes_images__image
-        = image_tag ''
-    .s-user_info.cle
-      = image_tag @user.image, class: 's-user_info__image'
-      .s-user_info__comment
-        = @wish.comment
-    .s-wishes_infos
-      h2.s-wishes_infos__title
-        | 欲しいもの情報
-      table
-        tr
-          th カテゴリ
-          td
-            = @category.name
-        tr
-          th 支払える金額
-          td
-            p
-              = @wish.price_min
-            p
-              = @wish.price_max
-        tr
-          th 説明
-          td
-            = @wish.description
-    .c-button
-      = link_to '恵んであげる', new_users_giving_path, class: 'c-button__giving'
+    .c-wish_detail
+      .c-wish_detail__images
+        ul.bxslider
+          - file = 'https://scontent-nrt1-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/11377093_1011895595489189_2044274437629127086_n.jpg?oh=1d3aa2717a9f92a2638ebefa277fcff6&oe=57988D04'
+          li
+            - if !@wish.image1.url
+              = image_tag(file, class: 'c-wish_detail__images__image')
+          li
+            - if !@wish.image2.url
+              = image_tag(file, class: 'c-wish_detail__images__image')
+          li
+            - if !@wish.image3.url
+              = image_tag(file, class: 'c-wish_detail__images__image')
+      .c-wish_detail__user_info.cle
+        = image_tag @user.image + '?type=normal', class: 'c-wish_detail__user_info__image'
+        .c-wish_detail__user_info__comment
+          = @wish.comment
+      .c-wish_detail__info
+        h2.c-wish_detail__info__title
+          | 欲しいもの情報
+        table
+          tr
+            th カテゴリ
+            td
+              = @category.name
+          tr
+            th 支払える金額
+            td
+              p
+                = @wish.price_min
+              p
+                = @wish.price_max
+          tr
+            th 説明
+            td
+              = @wish.description
+      .c-button
+        = link_to '恵んであげる', new_users_giving_path, class: 'c-button__giving'

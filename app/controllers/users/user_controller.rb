@@ -1,5 +1,17 @@
 module Users
   class UserController < UsersController
+    before_action :require_login, only: [:mypage, :edit]
+    def show
+      @user = User.find_by(hashed_id: params[:hashed_id])
+      render_404 && return unless @user
+    end
+
+    def mypage
+    end
+
+    def edit
+    end
+
     def create
       return unless env['omniauth.auth'].present?
 

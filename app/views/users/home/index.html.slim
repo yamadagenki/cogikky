@@ -9,7 +9,9 @@
       - Category.all.each do |category|
         = link_to users_category_path(category.id) do
           li.s-giving_categories__contents__content
-            = category.name
+            = image_tag("category/#{category.id}.png", class: 's-giving_categories__contents__content__image')
+            .s-giving_categories__contents__content__title
+              = category.name
 
   .s-about_cogikky
     .s-about_cogikky__title Cogikkyについて

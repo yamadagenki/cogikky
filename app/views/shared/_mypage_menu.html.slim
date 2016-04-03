@@ -1,0 +1,15 @@
+aside.two_culomn_aside
+  .two_culomn_aside__menu_box
+    h2.two_culomn_aside__menu_box__title
+      | マイページメニュー
+    .two_culomn_aside__menu_box__lists
+      .two_culomn_aside__menu_box__lists__list
+        = link_to 'マイページ', users_user_mypage_path
+      .two_culomn_aside__menu_box__lists__list
+        = link_to 'メッセージ', users_messages_path
+      .two_culomn_aside__menu_box__lists__list
+        = link_to '恵んでもらうリスト', users_wishes_path
+      .two_culomn_aside__menu_box__lists__list
+        = link_to '恵んであげるリスト', users_givings_path
+      .two_culomn_aside__menu_box__lists__list
+        = link_to '恵んでくれる人々', root_path

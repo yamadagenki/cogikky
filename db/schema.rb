@@ -11,11 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319175523) do
+ActiveRecord::Schema.define(version: 20160320143239) do
+
+  create_table "givings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "wish_id"
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "givings", ["user_id"], name: "index_givings_on_user_id"
+  add_index "givings", ["wish_id"], name: "index_givings_on_wish_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "uid"
+    t.string   "hashed_id"
     t.string   "name"
     t.string   "image"
     t.string   "oauth_token"
@@ -27,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160319175523) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["hashed_id"], name: "index_users_on_hashed_id", unique: true
   add_index "users", ["uid"], name: "index_users_on_uid", unique: true
 
   create_table "wishes", force: :cascade do |t|
@@ -38,6 +51,9 @@ ActiveRecord::Schema.define(version: 20160319175523) do
     t.string   "state"
     t.string   "price_max"
     t.string   "price_min"
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image3"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
