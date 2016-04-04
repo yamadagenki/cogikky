@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404150752) do
+ActiveRecord::Schema.define(version: 20160404163046) do
 
   create_table "givings", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,7 +27,8 @@ ActiveRecord::Schema.define(version: 20160404150752) do
   create_table "messages", force: :cascade do |t|
     t.integer  "to_user_id"
     t.integer  "from_user_id"
-    t.datetime "read_time"
+    t.datetime "to_read_time"
+    t.datetime "from_read_time"
     t.text     "body",           default: ""
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -35,6 +36,17 @@ ActiveRecord::Schema.define(version: 20160404150752) do
 
   add_index "messages", ["from_user_id"], name: "index_messages_on_from_user_id"
   add_index "messages", ["to_user_id"], name: "index_messages_on_to_user_id"
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "working"
+    t.string   "education"
+    t.integer  "gender"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

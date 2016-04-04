@@ -24,3 +24,9 @@ AllCops:
     - assets/**/*
     - config/**/*
     - coverage/**/*
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/MethodLength:
+  Max: 30

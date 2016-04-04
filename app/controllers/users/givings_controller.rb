@@ -7,24 +7,29 @@ module Users
 
     def new
       @wish = Wish.find_by(id: params[:wish_id])
-      @giving = Giving.new
+      @giving = Giving.new(wish_id: @wish.id)
     end
 
     def create
-      @giving = Giving.new(wish_id: wish.id, user_id: current_user.id)
+      @giving = Giving.new(craete_giving_params)
 
-      if @giving.save
-        UsersMailer.send_giving.deliver_now
-        Message.create(to_user_id:  wish.user_id,
-                       from_user_id: current_user.id,
-                       body: 'サンプルでーす'
-                      )
-      else
-        render 'new'
-      end
+      render 'new' && return unless @giving.save
+
+      UsersMailer.send_giving.deliver_now
+      Message.create(to_user_id:  craete_giving_params[:wish_id],
+                     from_user_id: current_user.id,
+                     body: 'サンプルでーす'
+                    )
+      redirect_to users_wish_path(craete_giving_params[:wish_id]), notice: '恵むと連絡しました'
     end
 
     def destroy
+    end
+
+    private
+
+    def craete_giving_params
+      params.require(:giving).permit(:wish_id, :user_id)
     end
   end
 end

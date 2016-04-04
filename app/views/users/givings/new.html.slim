@@ -18,5 +18,6 @@
       | #{@wish.title}（恵んであげる確認）
     = form_for(@giving, url: users_givings_path) do |f|
       = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :wish_id, value: current_user.id
       .c-button
         = f.submit '送信', class: 'c-button__giving'
