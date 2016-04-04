@@ -1,0 +1,18 @@
+.breadcrumbs
+  = render_breadcrumbs separator: ' > '
+
+.content.cle
+  aside.two_culomn_aside
+    .two_culomn_aside__menu_box
+      h2.two_culomn_aside__menu_box__title
+        | 恵むカテゴリー
+      .two_culomn_aside__menu_box__lists
+        - Category.all.each do |category|
+          = link_to users_category_path(category.id) do
+            .two_culomn_aside__menu_box__lists__list
+              = category.name
+
+
+  main.two_culomn_main
+    h1.two_culomn_main__title
+      | #{@wish.title}（恵んであげる確認）

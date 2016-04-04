@@ -6,7 +6,7 @@ module Users
     end
 
     def new
-      raise
+      @wish = Wish.find_by(id: params[:wish_id])
     end
 
     def destroy

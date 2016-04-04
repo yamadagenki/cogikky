@@ -50,4 +50,8 @@
             td
               = @wish.description
       .c-button
-        = link_to '恵んであげる', new_users_giving_path, class: 'c-button__giving'
+        - if logged_in?
+          = link_to '恵んであげる確認', new_users_giving_path(wish_id: @wish.id), class: 'c-button__giving'
+        - else
+          button.c-button__giving type="button" onclick='alert("ログインしてください");'
+            | 恵んであげる確認
