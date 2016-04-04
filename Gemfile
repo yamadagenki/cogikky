@@ -21,6 +21,8 @@ gem 'cells'
 gem 'slim-rails'
 gem 'breadcrumbs_on_rails'
 
+gem 'config'
+
 # マスターデータ
 gem 'active_hash'
 
@@ -53,6 +55,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rack-mini-profiler'
   gem 'spring'
+  gem 'letter_opener_web'
 end
 
 group :test do

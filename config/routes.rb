@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :givings, only: [:create, :destroy, :new, :index]
   end
 
-
   get 'terms' => 'pages#show', id: 'terms'
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
